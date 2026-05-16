@@ -1,6 +1,12 @@
 name: Lint
 
 on:
+  workflow_call:
+    inputs:
+      ref:
+        description: Git ref to check out before running lint.
+        required: false
+        type: string
   pull_request:
   push:
     branches:
@@ -26,6 +32,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: ${{ inputs.ref || github.ref }}
           submodules: recursive
 
       - name: Install Rust
