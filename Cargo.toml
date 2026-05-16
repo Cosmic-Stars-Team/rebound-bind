@@ -1,0 +1,40 @@
+[package]
+name = "rebound-bind"
+version = "5.0.0"
+edition = "2024"
+license = "GPL-3.0"
+description = "Low-level Rust FFI bindings for the REBOUND N-body simulation C library."
+repository = "https://github.com/Cosmic-Stars-Team/rebound-bind"
+homepage = "https://github.com/hannorein/rebound"
+documentation = "https://docs.rs/rebound-bind"
+readme = "README.md"
+keywords = ["rebound", "nbody", "astrodynamics", "astronomy"]
+categories = ["science", "aerospace::simulation"]
+links = "rebound"
+include = [
+    "README.md",
+    "LICENSE",
+    "Cargo.toml",
+    "build.rs",
+    "src/**",
+    "rebound/src/**",
+    "rebound/LICENSE",
+]
+
+[features]
+default = []
+opengl = []
+openmp = []
+openmp-clang = ["openmp"]
+mpi = []
+fftw = []
+server = []
+avx512 = []
+quadrupole = []
+profiling = []
+
+[dependencies]
+
+[build-dependencies]
+bindgen = "0.72.1"
+cc = "1"
